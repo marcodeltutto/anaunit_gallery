@@ -36,6 +36,8 @@ namespace galleryfmwk {
   const int PI_PLUS  = 211;
   const int PROTON   = 2212;   
   const int K_PLUS   = 321;
+  const int E_MINUS  = 11;
+  const int PHOTON   = 22; 
 
 /**
    \class tester

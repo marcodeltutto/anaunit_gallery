@@ -18,16 +18,13 @@ def process_file(_file):
     #my_proc.add_input_file(_file)
 
     # Specify output root file name
-    my_proc.set_ana_output_file("./ana_ext_ub.root")
+    my_proc.set_ana_output_file("./out_event.root")
     # my_proc.set_output_file("")
 
-    tester = galleryfmwk.tester()
-    tester.setFlashProducer("simpleFlashBeam")
-    tester.setPfpProducer("pandoraNu")
-    tester.setVerbose(False)
+    event = galleryfmwk.event()
     
     # Attach an analysis unit ... here we use a base class which do
-    my_proc.add_process(tester)
+    my_proc.add_process(event)
 
     my_proc.run(50000)
 

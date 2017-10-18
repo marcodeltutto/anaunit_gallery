@@ -22,7 +22,10 @@ bool tester::initialize() {
 
 bool tester::analyze(gallery::Event * ev) {
 
-    // For each file, loop over all events.
+
+  std::cout << "Event " <<  ev->eventAuxiliary().event() << std::endl;
+
+  // For each file, loop over all events.
     //
     // Determine criteria for rejecting muon like events
     // Save metadata for each event (neutrino pdg, energy, vertex)
@@ -69,21 +72,27 @@ bool tester::analyze(gallery::Event * ev) {
                     || (PROTON == std::abs(pdg)) 
                     || (K_PLUS == std::abs(pdg)));
 
+      bool is_shower = ((E_MINUS == std::abs(pdg))
+                     || (PHOTON == std::abs(pdg)));
+
       if (is_track) 
         ntrack++;
-      else
+      if (is_shower)
         nshower++;
     }
 
     _npfp->Fill(npfp);
     _npfp_track->Fill(ntrack);
     _npfp_shower->Fill(nshower);
-    double ratio;
+    double ratio = -1;
     if (nshower != 0) 
       ratio = (double)ntrack/(double)nshower;
     else ratio = -1;
     _npfp_trk_shw_ratio->Fill(ratio);
 
+    if (ratio > 0.9 && ratio < 1.1) {
+      std::cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Ratio is " << ratio << "npfp = " << npfp << "  ntrack = " << ntrack << "  nshower = " << nshower << std::endl;
+    }
     //std::cout << "ntrack " << ntrack << "  nshower " << nshower << "  ratio " << ratio << std::endl;
 
     return true;
