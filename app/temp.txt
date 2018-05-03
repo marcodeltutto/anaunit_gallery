@@ -1,0 +1,33 @@
+%MSG-i MF_INIT_OK:  lar 10-Jul-2017 05:19:04 CDT JobSetup
+Messagelogger initialization complete.
+%MSG
+10-Jul-2017 05:19:05 CDT  Initiating request to open input file "/pnfs/uboone/scratch/users/uboonepro/mcc8.1/v06_26_01_05/reco/prodcosmics_corsika_cmc_uboone/0/1/9184/18115748_0/prodcosmics_corsika_cmc_uboone_0_20170311T063328_gen2_33d48b8f-b402-435b-9a3b-a06b74e8ca0b_20170615T223657_reco1.root"
+%MSG-i Root_Information:  lar TClass::Init() 10-Jul-2017 05:19:08 CDT JobSetup
+no dictionary for class art::Wrapper<vector<evwgh::MCEventWeight> > is available
+%MSG
+%MSG-i Root_Information:  lar TClass::Init() 10-Jul-2017 05:19:08 CDT JobSetup
+no dictionary for class evwgh::MCEventWeight is available
+%MSG
+10-Jul-2017 05:19:08 CDT  Opened input file "/pnfs/uboone/scratch/users/uboonepro/mcc8.1/v06_26_01_05/reco/prodcosmics_corsika_cmc_uboone/0/1/9184/18115748_0/prodcosmics_corsika_cmc_uboone_0_20170311T063328_gen2_33d48b8f-b402-435b-9a3b-a06b74e8ca0b_20170615T223657_reco1.root"
+%MSG-s ArtException:  lar 10-Jul-2017 05:19:08 CDT JobSetup
+cet::exception caught in art
+---- DictionaryNotFound BEGIN
+  No dictionary found for the following classes:
+  
+       art::Wrapper<vector<evwgh::MCEventWeight> >
+       evwgh::MCEventWeight
+       vector<evwgh::MCEventWeight>
+  
+  Most likely they were never generated, but it may be that they were generated in the wrong package.
+  
+  Please add (or move) the specification
+  
+       <class name="MyClassName"/>
+  
+  to the appropriate classes_def.xml file.
+  
+  Also, if this class has any transient members,
+  you need to specify them in classes_def.xml.
+---- DictionaryNotFound END
+%MSG
+Art has completed and will exit with status 7.
